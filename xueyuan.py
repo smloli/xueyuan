@@ -60,7 +60,7 @@ def _print_all():
 
 def RW_data(mode = 'rb'):
     try:
-        with open(path,mode) as f:
+        with open('student.txt',mode) as f:
             if mode == 'wb':
                 global student_list
                 pickle.dump(student_list,f)
@@ -69,7 +69,6 @@ def RW_data(mode = 'rb'):
     except FileNotFoundError:
         return []
 if __name__ == '__main__':
-    path = '/storage/emulated/0/Download/student.txt'
     info_list = ['姓名','年龄','性别']
     student_list = RW_data()
     a = '-' * 35
