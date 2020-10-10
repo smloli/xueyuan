@@ -67,8 +67,7 @@ def RW_data(mode = 'rb'):
             else:
                 student_list = pickle.load(f)
     except FileNotFoundError:
-        student_list = []
-    return student_list
+        return []
 if __name__ == '__main__':
     path = '/storage/emulated/0/Download/student.txt'
     info_list = ['姓名','年龄','性别']
