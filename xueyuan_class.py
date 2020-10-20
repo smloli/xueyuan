@@ -5,15 +5,18 @@ class Manager_System():
         self.fg = '-' * 35
         self.student = self._RW_Data('rb')
         self.info = ['姓名','年龄','性别']
+
     def _add(self,**kwargs):
         self.student.append(kwargs)
         self._print_all()
+
     def _del(self):
         Name = input('姓名:')
         for i in self.student:
             if i['Name'] == Name:
                 self.student.remove(i)
         self._print_all()
+
     def _Inquire(self):
         Name = input('姓名:')
         for i in self.student:
@@ -25,6 +28,7 @@ class Manager_System():
                 for j in i.values():
                     print(f'{j.center(10)}',end='')
                 print()
+
     def _modify(self):
         c = 0
         Name = input('姓名:')
@@ -38,6 +42,7 @@ class Manager_System():
                     i[j] = tmp[c]
                     c+=1
         self._print_all()
+
     def _print_all(self):
         print(self.fg)
         for i in self.info:
@@ -47,6 +52,7 @@ class Manager_System():
             for j in c.values():
                 print(f'{j.center(10)}',end='')
             print()
+
     def _RW_Data(self,mode):
         try:
             with open('student.txt',mode) as f:
@@ -56,6 +62,7 @@ class Manager_System():
                     return pickle.load(f)
         except FileNotFoundError:
             return []
+
     def run(self):
         while True:
             print(f'{self.fg}\n1.添加学员\n2.删除学员\n3.查询学员\n4.修改学员\n5.显示学员信息\n6.保存学员信息\n7.退出系统\n{self.fg}')
@@ -79,6 +86,7 @@ class Manager_System():
                 break
             else:
                 print('似不似傻!!!')
+
 if __name__ == '__main__':
     Loli = Manager_System()
     Loli.run()
